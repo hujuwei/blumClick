@@ -74,9 +74,15 @@ if __name__ == "__main__":
     
     #循环截图点击
     no_find_count = 0;
+    clickcount = 0;
+    threshold = 0.8
     while True:
+        clickcount += 1
+        #用下面的阈值会漏部分
+        #threshold = 0.8 if clickcount % 9 == 0 else 1
+        
         for item in target_list:
-            if find_and_print_matches(item, snap_region):
+            if find_and_print_matches(item, snap_region, threshold):
                 pass
             else:
                 print("未识别目标")
